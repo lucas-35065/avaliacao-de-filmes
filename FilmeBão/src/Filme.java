@@ -1,0 +1,12 @@
+public class Filme {
+    String nome;
+    int anoDeLancamento;
+    boolean incluidoNoPlano;
+    double avaliacao;
+    int totalDeAvaliacoes;
+    int duracoesEmMinutos;
+
+    void exibeFichaTecnica(){
+        System.out.println();
+    }
+}
