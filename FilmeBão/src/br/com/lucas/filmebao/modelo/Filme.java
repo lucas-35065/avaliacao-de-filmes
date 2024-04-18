@@ -14,8 +14,7 @@ public class Filme extends Titulo implements Classificavel {
     }
 
     @Override
-    public int getAvaliacoes() {
-        // TODO Auto-generated method stub
-        return 0;
+    public int getCassificacoes() {
+        return (int) calculaMedia()/2;
     }
 }

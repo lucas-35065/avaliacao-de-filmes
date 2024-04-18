@@ -1,4 +1,6 @@
 import br.com.lucas.filmebao.calculos.CalculadoraDeTempo;
+import br.com.lucas.filmebao.calculos.FiltroRecomendacao;
+import br.com.lucas.filmebao.modelo.Episodio;
 import br.com.lucas.filmebao.modelo.Filme;
 import br.com.lucas.filmebao.modelo.Serie;
 
@@ -40,5 +42,15 @@ public class Principal {
         calculadora.inclui(meuFilme);
 
         System.out.println(calculadora.getTempoTotal());
+        
+        Episodio episodio1 = new Episodio();
+        episodio1.setNome("O Chefão mal");
+        episodio1.setNumeroDoEpisodio(10);
+        episodio1.setSerie(demolidor);
+        episodio1.setTotalVisualizacoes(101);
+
+        FiltroRecomendacao filtro = new FiltroRecomendacao();
+        filtro.filtra(episodio1);
+        filtro.filtra(meuFilme);
     }
 }
