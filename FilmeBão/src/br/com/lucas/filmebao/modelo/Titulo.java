@@ -7,6 +7,11 @@ public class Titulo {
     private double somaDasAvaliacoes;
     private int totalDeAvaliacoes;
     private int duracaoEmMinutos;
+
+    public Titulo (String nome, int anoDeLancamento){
+        this.setNome(nome);
+        this.setAnoDeLancamento(anoDeLancamento);
+    }
     
     public void setNome(String nome) {
         this.nome = nome;
