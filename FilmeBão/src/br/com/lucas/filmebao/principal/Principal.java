@@ -1,3 +1,4 @@
+package br.com.lucas.filmebao.principal;
 import java.util.ArrayList;
 
 import br.com.lucas.filmebao.calculos.CalculadoraDeTempo;
