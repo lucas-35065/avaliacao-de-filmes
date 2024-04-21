@@ -7,6 +7,8 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
+import com.google.gson.Gson;
+
 public class PrincipalComRequisicao {
    public static void main(String[] args) throws IOException, InterruptedException {
     
@@ -25,8 +27,12 @@ public class PrincipalComRequisicao {
             .uri(URI.create(endereco))
             .build();
        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+       
+       var json = response.body();
+       System.out.println(json);
+       
+       Gson gson = new Gson();
 
-       System.out.println(response.body());
 
    }
 }
