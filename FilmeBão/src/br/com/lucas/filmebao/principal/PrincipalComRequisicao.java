@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class PrincipalComRequisicao {
    public static void main(String[] args) throws IOException, InterruptedException {
     
-       Scanner leitura = new Scanner(System.in);
+       var leitura = new Scanner(System.in);
 
        System.out.println("Digite o nome do filme que está buscando: ");
        String busca = leitura.nextLine();
