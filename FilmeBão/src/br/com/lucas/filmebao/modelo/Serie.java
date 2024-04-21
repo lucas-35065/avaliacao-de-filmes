@@ -52,4 +52,8 @@ public class Serie extends Titulo{
         return (temporadas * episodiosPorTemporada * minutosPorEpisodio)/60;
     }
 
+    @Override
+    public String toString() {
+        return String.format("Série: %s (%d)", this.getNome(), this.getAnoDeLancamento());
+    }
 }
