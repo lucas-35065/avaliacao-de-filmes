@@ -1,5 +1,7 @@
 package br.com.lucas.filmebao.modelo;
 
+import br.com.lucas.filmebao.excecao.ErroDeConversaoDeAnoException;
+
 public class Titulo implements Comparable<Titulo>{
     private String nome;
     private int anoDeLancamento;
@@ -10,7 +12,11 @@ public class Titulo implements Comparable<Titulo>{
 
     public Titulo (TituloOmdb meuTituloOmdb){
         this.nome = meuTituloOmdb.title();
-        this.anoDeLancamento = Integer.valueOf(meuTituloOmdb.year());
+
+        if(meuTituloOmdb.year().length() > 4) {
+                throw new ErroDeConversaoDeAnoException("Não consegui converter o ano " +
+                                "porque tem mais de 04 caracteres.");
+        }
         this.duracaoEmMinutos = Integer.valueOf(meuTituloOmdb.runtime().substring(0,3));
     }
 
