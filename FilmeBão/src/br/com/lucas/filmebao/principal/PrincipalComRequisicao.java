@@ -7,12 +7,21 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.Scanner;
 
+import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import br.com.lucas.filmebao.modelo.Titulo;
+import br.com.lucas.filmebao.modelo.TituloOmdb;
 
 public class PrincipalComRequisicao {
    public static void main(String[] args) throws IOException, InterruptedException {
     
        var leitura = new Scanner(System.in);
+       Gson gson = new GsonBuilder()
+            .setFieldNamingPolicy(FieldNamingPolicy.UPPER_CAMEL_CASE)
+            .create();
+
 
        System.out.println("Digite o nome do filme que está buscando: ");
        String busca = leitura.nextLine();
@@ -29,10 +38,13 @@ public class PrincipalComRequisicao {
        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
        
        var json = response.body();
-       System.out.println(json);
-       
-       Gson gson = new Gson();
 
+       TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
+       System.out.println(meuTituloOmdb);
+
+       Titulo meuTitulo = new Titulo(meuTituloOmdb);
+       System.out.println("Titulo convertido");
+       System.out.println(meuTitulo);
 
    }
 }
