@@ -1,5 +1,6 @@
 package br.com.lucas.filmebao.principal;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -46,6 +47,12 @@ public class PrincipalComRequisicao {
             Titulo meuTitulo = new Titulo(meuTituloOmdb);
             System.out.println("Titulo convertido");
             System.out.println(meuTitulo);
+
+            FileWriter escrita = new FileWriter("filmes.txt");
+            escrita.write(meuTitulo.toString());
+            escrita.close();
+            
+            leitura.close();
        } catch (NumberFormatException e) {
             System.out.println("Aconteceu um erro: ");
             System.out.println(e.getMessage());
